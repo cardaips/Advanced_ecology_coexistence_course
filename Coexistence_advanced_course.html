@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Caroline Daniel">
+<meta name="dcterms.date" content="2023-03-23">
+
+<title>Advance ecology course: Modern coexistence theory (MCT)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Coexistence_advanced_course_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Coexistence_advanced_course_files/libs/quarto-html/quarto.js"></script>
+<script src="Coexistence_advanced_course_files/libs/quarto-html/popper.min.js"></script>
+<script src="Coexistence_advanced_course_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Coexistence_advanced_course_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Coexistence_advanced_course_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Coexistence_advanced_course_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Coexistence_advanced_course_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Coexistence_advanced_course_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Coexistence_advanced_course_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>
+    .quarto-title-block .quarto-title-banner {
+      color: black;
+background-image: url(images/banner2.jpg);
+background-size: cover;
+    }
+    </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Advance ecology course: Modern coexistence theory (MCT)</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Caroline Daniel </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 23, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Shortcuts</h2>
+   
+  <ul>
+  <li><a href="#load-dataset-from-the-pot-experiment" id="toc-load-dataset-from-the-pot-experiment" class="nav-link active" data-scroll-target="#load-dataset-from-the-pot-experiment">(0) Load dataset from the pot experiment</a></li>
+  <li><a href="#compute-competition-coefficients" id="toc-compute-competition-coefficients" class="nav-link" data-scroll-target="#compute-competition-coefficients">(1) Compute competition coefficients</a>
+  <ul>
+  <li><a href="#a-example-with-2-species" id="toc-a-example-with-2-species" class="nav-link" data-scroll-target="#a-example-with-2-species">(a) Example with 2 species</a></li>
+  <li><a href="#b-get-the-full-competition-matrix" id="toc-b-get-the-full-competition-matrix" class="nav-link" data-scroll-target="#b-get-the-full-competition-matrix">(b) Get the full competition matrix</a></li>
+  </ul></li>
+  <li><a href="#niche-and-fitness-differences" id="toc-niche-and-fitness-differences" class="nav-link" data-scroll-target="#niche-and-fitness-differences">(2) Niche and fitness differences</a>
+  <ul>
+  <li><a href="#a-example-with-2-species-1" id="toc-a-example-with-2-species-1" class="nav-link" data-scroll-target="#a-example-with-2-species-1">(a) Example with 2 species</a></li>
+  <li><a href="#b-use-the-full-matrix-to-plot-all-species-pairs" id="toc-b-use-the-full-matrix-to-plot-all-species-pairs" class="nav-link" data-scroll-target="#b-use-the-full-matrix-to-plot-all-species-pairs">(b) Use the full matrix to plot all species pairs</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Welcome to the <strong>Coexistence session of the Advanced ecology course</strong> !</p>
+<p>Today, you will calculate niches and fitness differences from equations described in Chesson, 2000. These equation will allow you to predict whether or not plant species from our pot experiment could coexist.</p>
+<p>There are several steps needed in order to determine potential species coexistence :</p>
+<ul>
+<li><p>First, we need to derive all possible competition coefficients <span class="math inline">\(α\)</span> (<strong>intraspecific</strong> = species competing with themselves, <strong>interspecific</strong> = species competing with another species)</p></li>
+<li><p>Then, we need to calculate the <span class="math inline">\(λ\)</span> <strong>intrinsinc growth rate</strong> for each of the species growing alone</p></li>
+<li><p>After that, we can calculate <strong>niche differences</strong> and <strong>fitness differences</strong> between every species pair</p></li>
+<li><p>And finally, we can assess whether or not plant can <strong>coexist</strong></p></li>
+</ul>
+<p><br></p>
+<section id="load-dataset-from-the-pot-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="load-dataset-from-the-pot-experiment">(0) Load dataset from the pot experiment</h2>
+<p><br></p>
+<p>First, for knitting this tutorial, you need to load the following packages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"knitr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note that no packages are needed for the analyses themselves, you can ignore this step if you work only with raw Rscript.</p>
+<p>Then, you need to define the project folder as your working directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change here for your own path</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>path<span class="ot">&lt;-</span><span class="st">"~/PhD/GitHub Repos/Advanced_ecology_coexistence_2023"</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set your working directory</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(path)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a knitting option, for knitting in the correct folder (you don't need this if you use basic Rscript)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_knit<span class="sc">$</span><span class="fu">set</span>(<span class="at">root.dir =</span> rprojroot<span class="sc">::</span><span class="fu">find_rstudio_root_file</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, you can read the text file with the dataset and have a first look at it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/coexistence_advanced_course.txt"</span>, <span class="at">header =</span> T)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Competition foc_specie comp_specie n_replicate Biomasse
+6            0    ant.odo           0           1     2.79
+7            0    ant.odo           0           2     1.97
+8            0    ant.odo           0           3     1.27
+9            0    ant.odo           0           4     1.94
+10           0    ant.odo           0           5     2.81
+20           0    cre.bie           0           1     1.45</code></pre>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="compute-competition-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="compute-competition-coefficients">(1) Compute competition coefficients</h2>
+<p><br></p>
+<section id="a-example-with-2-species" class="level3">
+<h3 class="anchored" data-anchor-id="a-example-with-2-species">(a) Example with 2 species</h3>
+<p>First, let’s try with the example seen before: <em>Dactylis glomerata</em> (dac.glo) versus <em>Crepis biennis</em> (cre.bie).</p>
+<ul>
+<li>intrinsic growth rate</li>
+</ul>
+<p>We need to get the <span class="math inline">\(λ\)</span> for both species growing alone. We selected the data of dac.glo by using the function <code>subset()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's select the data of dactylis glomerata</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dac.glo_data<span class="ot">&lt;-</span> <span class="fu">subset</span>(data, data<span class="sc">$</span>foc_specie <span class="sc">==</span> <span class="st">"dac.glo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="smallcaps">Now your turn!</span> Try to select only the focal plants of dac.glo growing alone using the function <code>subset()</code></p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's select the data of dactylis glomerata growing alone</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dac.glo_alone<span class="ot">&lt;-</span> <span class="fu">subset</span>(dac.glo_data, dac.glo_data<span class="sc">$</span>comp_specie <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#or!</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dac.glo_alone<span class="ot">&lt;-</span> <span class="fu">subset</span>(dac.glo_data, dac.glo_data<span class="sc">$</span>Competition <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Once you got the subset of the data, it is very easy to calculate the intrinsic growth rate <span class="math inline">\(λ_i\)</span> for <em>Dactylis glomerata</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lambda for dactylis glomerata</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dac.glo_lambda<span class="ot">&lt;-</span> <span class="fu">mean</span>(dac.glo_alone<span class="sc">$</span>Biomasse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="smallcaps">Now your turn!</span> Calculate the <span class="math inline">\(λ_j\)</span> for <em>Crepis biennis</em> on your own</p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cre.bie_data<span class="ot">&lt;-</span> <span class="fu">subset</span>(data, data<span class="sc">$</span>foc_specie <span class="sc">==</span> <span class="st">"cre.bie"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cre.bie_alone<span class="ot">&lt;-</span> <span class="fu">subset</span>(cre.bie_data, cre.bie_data<span class="sc">$</span>comp_specie <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>cre.bie_lambda<span class="ot">&lt;-</span> <span class="fu">mean</span>(cre.bie_alone<span class="sc">$</span>Biomasse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>intraspecific competition coefficients</li>
+</ul>
+<p>Secondly, we will compute the intraspecific coefficient <span class="math inline">\(α_{ii}\)</span> for <em>Dactylis glomerata</em>. For this, you will use the following equation: <span id="eq-1"><span class="math display">\[
+α_{ii} = log(\frac{biomasse_{ii}}{λ_i})
+\tag{1}\]</span></span></p>
+<p><br> <span class="smallcaps">Now your turn!</span> Do you have any idea how to do this? Why not using the same function <code>subset()</code> that we used before?</p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dac.glo_intra<span class="ot">&lt;-</span> <span class="fu">subset</span>(dac.glo_data, dac.glo_data<span class="sc">$</span>Competition<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#or!</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dac.glo_intra<span class="ot">&lt;-</span> <span class="fu">subset</span>(dac.glo_data, dac.glo_data<span class="sc">$</span>comp_specie<span class="sc">==</span><span class="st">"dac.glo"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># code transcription of equation (1) for dac.glo</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>dac.glo_intra_competition<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(dac.glo_intra<span class="sc">$</span>Biomasse)<span class="sc">/</span><span class="fu">mean</span>(dac.glo_alone<span class="sc">$</span>Biomasse))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Let’s also do the same for <em>Crepis biennis</em> and get <span class="math inline">\(α_{jj}\)</span></p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cre.bie_intra<span class="ot">&lt;-</span> <span class="fu">subset</span>(cre.bie_data, cre.bie_data<span class="sc">$</span>Competition<span class="sc">==</span><span class="dv">1</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#or!</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>cre.bie_intra<span class="ot">&lt;-</span> <span class="fu">subset</span>(cre.bie_data, cre.bie_data<span class="sc">$</span>comp_specie<span class="sc">==</span><span class="st">"cre.bie"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># code transcription of equation (1) for dac.glo</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>cre.bie_intra_competition<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(cre.bie_intra<span class="sc">$</span>Biomasse)<span class="sc">/</span><span class="fu">mean</span>(cre.bie_alone<span class="sc">$</span>Biomasse))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<ul>
+<li>interspecific competition coefficients</li>
+</ul>
+<p>Then, we will calculate both of the <span class="math inline">\(α_{ij}\)</span> and <span class="math inline">\(α_{ji}\)</span> with the following equations:</p>
+<p><span id="eq-2"><span class="math display">\[
+α_{ij} = log(\frac{biomasse_{ij}}{λ_i})
+\tag{2}\]</span></span><br>
+<span id="eq-3"><span class="math display">\[
+α_{ji} = log(\frac{biomasse_{ji}}{λ_j})
+\tag{3}\]</span></span> <br> <span class="smallcaps">Now your turn!</span> No surprises here, try to retrieve the following values:</p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first, let's get alpha ij for dactylis glomerata</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>dac.glo_cre.bie<span class="ot">&lt;-</span> <span class="fu">subset</span>(dac.glo_data, dac.glo_data<span class="sc">$</span>comp_specie <span class="sc">==</span> <span class="st">"cre.bie"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>dac.glo_cre.bie_competition<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(dac.glo_cre.bie<span class="sc">$</span>Biomasse)<span class="sc">/</span><span class="fu">mean</span>(dac.glo_alone<span class="sc">$</span>Biomasse))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>dac.glo_cre.bie_competition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.3896812</code></pre>
+</div>
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># secondly, let's compute alpha ji for crepis biennis</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>cre.bie_dac.glo<span class="ot">&lt;-</span> <span class="fu">subset</span>(cre.bie_data, cre.bie_data<span class="sc">$</span>comp_specie <span class="sc">==</span> <span class="st">"dac.glo"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>cre.bie_dac.glo_competition<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(cre.bie_dac.glo<span class="sc">$</span>Biomasse)<span class="sc">/</span><span class="fu">mean</span>(cre.bie_alone<span class="sc">$</span>Biomasse))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>cre.bie_dac.glo_competition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -1.127644</code></pre>
+</div>
+</div>
+<p>So, did you find the same values for <span class="math inline">\(α_{ij}\)</span> and <span class="math inline">\(α_{ji}\)</span> ?</p>
+<p><br></p>
+</section>
+<section id="b-get-the-full-competition-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="b-get-the-full-competition-matrix">(b) Get the full competition matrix</h3>
+<p>Now let’s add a bit of complexity, with a <code>for {}</code> loop that computes the full competition matrix. First, we should save the species names in a variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">##register species for loop</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sp<span class="ot">&lt;-</span><span class="fu">levels</span>(<span class="fu">droplevels</span>(<span class="fu">as.factor</span>((data<span class="sc">$</span>foc_specie))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, we need to define an empty matrix of competition coefficients <span class="math inline">\(α\)</span> that has the same length than our species variable <code>sp</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define the competition matrix</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>all_alpha<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="fu">length</span>(sp), <span class="at">ncol =</span> <span class="fu">length</span>(sp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We also need an empty matrix for our intrinsic growth rate <span class="math inline">\(λ\)</span>,</p>
+<p><span class="smallcaps">Now your turn!</span> Try to create an empty matrix for the <span class="math inline">\(λ\)</span></p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>all_lambda<span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">nrow =</span> <span class="fu">length</span>(sp), <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Finally, we need an empty data set that saves temporary data about the selected species.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>temporary_sp_data<span class="ot">&lt;-</span><span class="fu">list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How to do a <code>for {}</code> loop? Good question! Let’s take it step by step…</p>
+<ul>
+<li>step 1: initialisation of the loop</li>
+</ul>
+<p>We have two matrices to fill, the <span class="math inline">\(α\)</span> matrix, and the <span class="math inline">\(λ\)</span> matrix. Let’s start by initialising the <span class="math inline">\(λ\)</span> matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here you tell R what to do with each species</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now let’s add the intialisation of the second loop in order to fill the pairwise coefficient matrix</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here you tell R what to do with each species</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)){</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here you will tell R what to do for each pairwise coefficient (ii, jj, ij and ji)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>step 2: the lambda loop</li>
+</ul>
+<p>Do you remember the <code>temporary_sp_data</code> variable? Now is the time to use it! We are simply going to save the data for the selected species i temporarily inside the loop, using the <code>subset()</code> function like in the example before with 2 species</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here you tell R what to do with each species</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#we need to save the data for each species i </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  temporary_sp_data<span class="ot">&lt;-</span><span class="fu">subset</span>(data, data<span class="sc">$</span>foc_specie<span class="sc">==</span>sp[i])</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#let's subset again just like in the example to select competition level = 0</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  temporary_lambda_data<span class="ot">&lt;-</span><span class="fu">subset</span>(temporary_sp_data, temporary_sp_data<span class="sc">$</span>Competition <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#then you can save the species lambda in the all_lambda matrix we created before</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  all_lambda[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(temporary_lambda_data<span class="sc">$</span>Biomasse)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)){</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here you will tell R what to do for each pairwise coefficient (ii, jj, ij and ji)</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Our variable <code>all_lambda</code> now needs better names for their rows and columns. We can use <code>sp</code> to rename the rows of our matrix, and simply call the column <code>"lambda"</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(all_lambda)<span class="ot">&lt;-</span>sp</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(all_lambda)<span class="ot">&lt;-</span><span class="st">"lambda"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>step 3: the alpha loop</li>
+</ul>
+<p>Computing the pairwise coefficient loop is not much more complicated. You can create a subset of temporary_sp_data using the subset() function, selecting species j. Then, you can use the same code as before to compute the log.ratio between species <span class="math inline">\(i\)</span> and species <span class="math inline">\(j\)</span>.</p>
+<p><span class="smallcaps">Now your turn!</span> How to solve these questions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here you tell R what to do with each species</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#we need to save the data for each species i </span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  temporary_sp_data<span class="ot">&lt;-</span><span class="fu">subset</span>(data, data<span class="sc">$</span>foc_specie<span class="sc">==</span>sp[i])</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#let's subset again just like in the example to select competition level = 0</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  temporary_lambda_data<span class="ot">&lt;-</span><span class="fu">subset</span>(temporary_sp_data, temporary_sp_data<span class="sc">$</span>Competition <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#then you can save the species lambda in the all_lambda matrix we created before</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  all_lambda[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(temporary_lambda_data<span class="sc">$</span>Biomasse)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)){</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here you will tell R what to do for each pairwise coefficient (ii, jj, ij and ji)</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># what do you think should go there instead of ...... ? </span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    temporary_alpha_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(temporary_sp_data, temporary_sp_data<span class="sc">$</span>comp_specie<span class="sc">==</span> ....... )</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#let's compute the log.ratio for every j</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    log_ratio<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(temporary_alpha_data<span class="sc">$</span>Biomass)<span class="sc">/</span><span class="fu">mean</span>(temporary_lambda_data<span class="sc">$</span>Biomasse))</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">#other exercise, how do we save it in our all_alpha matrice in your opinion?</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    all_alpha</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here you tell R what to do with each species</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#we need to save the data for each species i </span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  temporary_sp_data<span class="ot">&lt;-</span><span class="fu">subset</span>(data, data<span class="sc">$</span>foc_specie<span class="sc">==</span>sp[i])</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#let's subset again just like in the example to select competition level = 0</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  temporary_lambda_data<span class="ot">&lt;-</span><span class="fu">subset</span>(temporary_sp_data, temporary_sp_data<span class="sc">$</span>Competition <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#then you can save the species lambda in the all_lambda matrix we created before</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  all_lambda[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(temporary_lambda_data<span class="sc">$</span>Biomasse)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)){</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># here you will tell R what to do for each pairwise coefficient (ii, jj, ij and ji)</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#use sp[j]!</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    temporary_alpha_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(temporary_sp_data, temporary_sp_data<span class="sc">$</span>comp_specie<span class="sc">==</span> sp[j])</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">#let's compute the log.ratio for every j</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    log_ratio<span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">mean</span>(temporary_alpha_data<span class="sc">$</span>Biomass)<span class="sc">/</span><span class="fu">mean</span>(temporary_lambda_data<span class="sc">$</span>Biomasse))</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">#all_alpha is a matrix so you can use matrix[i,j]</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    all_alpha[i,j]<span class="ot">&lt;-</span> log_ratio</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We now have all <span class="math inline">\(α\)</span> and the <span class="math inline">\(λ\)</span> in matrices!</p>
+<p><span class="smallcaps">Now your turn!</span> Rename them as before with meaningful <code>colnames()</code> and <code>rownames()</code></p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(all_lambda)<span class="ot">&lt;-</span>sp</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(all_lambda)<span class="ot">&lt;-</span><span class="st">"lambda"</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(all_alpha)<span class="ot">&lt;-</span>sp</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(all_alpha)<span class="ot">&lt;-</span>sp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="niche-and-fitness-differences" class="level2">
+<h2 class="anchored" data-anchor-id="niche-and-fitness-differences">(2) Niche and fitness differences</h2>
+<p><br></p>
+<section id="a-example-with-2-species-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-example-with-2-species-1">(a) Example with 2 species</h3>
+<p>Now we have all needed coefficient in order to calculate niche and fitness differences using the following equations:</p>
+<ul>
+<li><p>niche differences:</p>
+<p><span id="eq-4"><span class="math display">\[
+1 - ρ = 1 - \sqrt{\frac{α_{ij}.α_{ji}}{α_{ii}.α_{jj}}}
+\tag{4}\]</span></span></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>fitness differences:</p>
+<p><span id="eq-5"><span class="math display">\[
+θ = \frac{λ_i}{λ_j} . \sqrt{\frac{α_{ij}.α_{ii}}{α_{ji}.α_{jj}}}
+\tag{5}\]</span></span></p></li>
+</ul>
+<p><br></p>
+<p><span class="smallcaps">Now your turn!</span> You have all the coefficient you need from the previous part, just apply the formula using <code>sqrt()</code></p>
+<p><span class="smallcaps"><strong>Warning!</strong></span></p>
+<p>We only compute one niche and one fitness differences per pair. The condition to choose which species is <span class="math inline">\(i\)</span> and which species is <span class="math inline">\(j\)</span> is <span class="math inline">\(λ_i&gt;λ_j\)</span>.</p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># niche differences between dac.glo and cre.bie</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>niche_diff_dac.glo_cre.bie<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>((dac.glo_cre.bie_competition<span class="sc">*</span>cre.bie_dac.glo_competition)<span class="sc">/</span>(dac.glo_intra_competition<span class="sc">*</span>cre.bie_intra_competition))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#fitness differences between dac.glo and cre.bie</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fitness_diff_dac.glo_cre.bie<span class="ot">&lt;-</span> (dac.glo_lambda<span class="sc">/</span>cre.bie_lambda)<span class="sc">*</span><span class="fu">sqrt</span>((dac.glo_cre.bie_competition<span class="sc">*</span>dac.glo_intra_competition)<span class="sc">/</span>(cre.bie_dac.glo_competition<span class="sc">*</span>cre.bie_intra_competition)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Time to see the results! Do you think <em>Dactylis glomerata</em> and <em>Crepis biennis</em> can coexist ?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sim<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">niche_overlap=</span><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="fl">0.05</span>))) <span class="co"># creating a vector with niche overlap</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>niche_diff<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>sim<span class="sc">$</span>niche_overlap) <span class="co"># calculating stabilizating differences from niche overlap 1-rho</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_1<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">/</span>sim<span class="sc">$</span>niche_overlap) <span class="co"># red line in your graph </span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_temp<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>sim<span class="sc">$</span>fitness_differences_sp_1 <span class="co">#this is an intermediate step to see the differences above one </span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_2<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span> sim<span class="sc">$</span>fitness_differences_sp_temp<span class="co"># blue line in your graph </span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlab=</span><span class="st">"niche differences"</span>, <span class="at">ylab=</span><span class="st">"fitness differences"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">8</span>))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_2, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">1</span>,<span class="at">v=</span><span class="dv">0</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># defines coexistence spaces</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.7</span>, <span class="at">y=</span><span class="fl">1.1</span>, <span class="st">"Priority effect"</span>)</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="fl">0.8</span>, <span class="at">y=</span><span class="fl">1.5</span>, <span class="st">"Coexistence"</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.5</span>, <span class="at">y=</span><span class="dv">3</span>, <span class="st">"Sp1 excluded"</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="at">x=</span><span class="sc">-</span><span class="fl">0.5</span>, <span class="at">y=</span><span class="sc">-</span><span class="dv">3</span>, <span class="st">"Sp2 excluded"</span>)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(niche_diff_dac.glo_cre.bie,fitness_diff_dac.glo_cre.bie,<span class="at">lwd=</span><span class="dv">5</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(niche_diff_dac.glo_cre.bie<span class="fl">+0.01</span>,fitness_diff_dac.glo_cre.bie<span class="fl">+0.3</span>, <span class="st">"Crepis vs Dactylis"</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>,<span class="dv">5</span>, <span class="st">"Exclusion by Crepis"</span>, <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Coexistence_advanced_course_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="960"></p>
+</div>
+</div>
+<p>No they can’t! <em>Crepis biennis</em> is predicted to exclude <em>Dactylis glomerata</em>.</p>
+<p><br></p>
+</section>
+<section id="b-use-the-full-matrix-to-plot-all-species-pairs" class="level3">
+<h3 class="anchored" data-anchor-id="b-use-the-full-matrix-to-plot-all-species-pairs">(b) Use the full matrix to plot all species pairs</h3>
+<p>Now you already have a good idea how to calculate coexistence for species pair. Let’s just relax and simply run the functions that will give you the results for the rest of the species.</p>
+<p>The first function will remove the facilitation from the competition matrix and assign a random weak competition number instead. The MCT framework doesn’t allow facilitation and would return N/As.</p>
+<p><span class="smallcaps">Now your turn!</span> Do you know why ?</p>
+<div class="cell">
+<details>
+<summary>Solution</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># because of the square roots ! </span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># if some coefficients are negative, you can't compute a negative square root</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>The second function will return from a competition matrix and all corresponding intrinsic growth rates: niche differences, fitness differences and whether or not the species can coexist</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#erase facilitation in a competition matrix</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>rm_facilitation<span class="ot">&lt;-</span> <span class="cf">function</span> (all) {</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  seq<span class="ot">&lt;-</span><span class="fu">runif</span>(<span class="at">n=</span> <span class="fu">length</span>(all[all<span class="sc">&gt;</span><span class="dv">0</span>]), <span class="at">min =</span> <span class="fu">min</span>(<span class="fu">abs</span>(all))<span class="sc">/</span><span class="dv">2</span>, <span class="at">max =</span> <span class="fu">min</span>(<span class="fu">abs</span>(all)))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  seq<span class="ot">&lt;-</span> <span class="sc">-</span>(seq)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  all[all<span class="sc">&gt;</span><span class="dv">0</span>]<span class="ot">&lt;-</span>seq</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(all)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># this is the coexistence function, you just give it alpha = competition coefficient matrix and lambda = intrinsic growth rate</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co">#and it computes for you the niche differences, fitness differences, and whether or not species can coexist</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>pairwise_coexistence <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, lambda) { </span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="at">data =</span> <span class="cn">NA</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">colnames</span>(alpha)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sp)) {</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (lambda[i,]<span class="sc">&gt;=</span>lambda[j,]){</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>      fitness<span class="ot">&lt;-</span>(lambda[j,]<span class="sc">/</span>lambda[i,])<span class="sc">*</span>(<span class="fu">sqrt</span>((alpha[i,j]<span class="sc">*</span>alpha[i,i])<span class="sc">/</span>(alpha[j,i]<span class="sc">*</span>alpha[j,j])))</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>      niche<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>((alpha[i,j]<span class="sc">*</span>alpha[j,i])<span class="sc">/</span>(alpha[i,i]<span class="sc">*</span>alpha[j,j])))</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>      coex<span class="ot">&lt;-</span><span class="fu">rbind</span>(coex, <span class="fu">c</span>(sp[i], sp[j], niche, fitness))</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(coex)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span>coex[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>),]</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coex)<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"sp1"</span>, <span class="st">"sp2"</span>, <span class="st">"niche.differences"</span>, <span class="st">"fitness.differences"</span>)</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(coex)</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a><span class="do">##clear coex dataframe uneeded combinations</span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coex)<span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(coex)) {</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (coex<span class="sc">$</span>sp1[i]<span class="sc">==</span>coex<span class="sc">$</span>sp2[i]){</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    coex[i,]<span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span><span class="fu">na.omit</span>(coex)</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>coex<span class="sc">$</span>niche.differences<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(coex<span class="sc">$</span>niche.differences)</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>coex<span class="sc">$</span>fitness.differences<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(coex<span class="sc">$</span>fitness.differences)</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(coex)<span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(coex)) {</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>  coex<span class="sc">$</span>coexistence[i]<span class="ot">&lt;-</span>(coex<span class="sc">$</span>fitness.differences[i])<span class="sc">&lt;=</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(coex<span class="sc">$</span>niche.differences[i]<span class="sc">-</span><span class="dv">1</span>))<span class="sc">&amp;</span>(<span class="dv">1</span><span class="sc">+</span>((<span class="dv">1</span><span class="sc">-</span>coex<span class="sc">$</span>fitness.differences[i])))<span class="sc">&lt;=</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span>(coex<span class="sc">$</span>niche.differences[i]<span class="sc">-</span><span class="dv">1</span>))<span class="sc">&amp;</span>(coex<span class="sc">$</span>niche.differences[i]<span class="sc">&gt;=</span><span class="dv">0</span>)</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(coex)</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's now apply the function to our data</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>all_alpha<span class="ot">&lt;-</span><span class="fu">rm_facilitation</span>(all_alpha)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>coex<span class="ot">&lt;-</span><span class="fu">pairwise_coexistence</span>(all_alpha,all_lambda)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      sp1     sp2 niche.differences fitness.differences coexistence
+1 ant.odo cre.bie        -0.9065883         0.049513227       FALSE
+2 ant.odo pru.gra         0.4706746         0.007834883       FALSE
+3 ant.odo tar.off        -1.2371124         0.214590655       FALSE
+4 cre.bie pru.gra         0.7263230         0.058055983        TRUE
+5 cre.bie tar.off         0.9179507         1.832897528        TRUE
+6 dac.glo ant.odo        -0.2150467         0.800663432       FALSE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sim<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">niche_overlap=</span><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">3</span>, <span class="fl">0.05</span>))) <span class="co"># creating a vector with niche overlap</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>niche_diff<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">-</span>sim<span class="sc">$</span>niche_overlap) <span class="co"># calculating stabilizating differences from niche overlap 1-rho</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_1<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">/</span>sim<span class="sc">$</span>niche_overlap) <span class="co"># red line in your graph </span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_temp<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>sim<span class="sc">$</span>fitness_differences_sp_1 <span class="co">#this is an intermediate step to see the differences above one </span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_2<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">+</span> sim<span class="sc">$</span>fitness_differences_sp_temp<span class="co"># blue line in your graph </span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(coex<span class="sc">$</span>fitness.differences<span class="sc">~</span>coex<span class="sc">$</span>niche.differences, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>,<span class="fl">1.1</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">18</span>), <span class="at">col=</span> <span class="fu">ifelse</span>(coex<span class="sc">$</span>coexistence<span class="sc">==</span>T, <span class="st">"red"</span>,<span class="st">"black"</span>))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(coex<span class="sc">$</span>niche.differences, coex<span class="sc">$</span>fitness.differences<span class="fl">+0.15</span>, <span class="at">labels=</span><span class="fu">paste</span>(<span class="fu">substr</span>(coex<span class="sc">$</span>sp1,<span class="dv">1</span>,<span class="dv">3</span>),<span class="fu">substr</span>(coex<span class="sc">$</span>sp2,<span class="dv">1</span>,<span class="dv">3</span>)),<span class="at">cex =</span> <span class="fl">0.5</span>,<span class="at">col=</span> <span class="fu">ifelse</span>(coex<span class="sc">$</span>coexistence<span class="sc">==</span>T, <span class="st">"red"</span>,<span class="st">"black"</span>))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_2, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">1</span>,<span class="at">v=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Coexistence_advanced_course_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
