@@ -381,7 +381,7 @@ Now we have all needed coefficient in order to calculate niche and fitness diffe
 -   fitness differences:
 
     $$
-    θ = \frac{λ_i}{λ_j} . \sqrt{\frac{α_{ij}.α_{ii}}{α_{ji}.α_{jj}}}
+    \frac{κ_i}{κ_j} = \frac{λ_i}{λ_j} . \sqrt{\frac{α_{ij}.α_{ii}}{α_{ji}.α_{jj}}}
     $$ {#eq-5}
 
 <br>
