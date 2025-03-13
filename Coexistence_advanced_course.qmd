@@ -415,7 +415,7 @@ sim$fitness_differences_sp_1<-(1/sim$niche_overlap) # red line in your graph
 sim$fitness_differences_sp_temp<- 1-sim$fitness_differences_sp_1 #this is an intermediate step to see the differences above one 
 sim$fitness_differences_sp_2<- sim$niche_overlap# blue line in your graph 
 
-plot(NULL, xlab="niche differences", ylab="fitness differences", xlim=c(-1, 1), ylim=c(-4,8))
+plot(NULL, xlab="niche differences", ylab="fitness differences", xlim=c(-1, 1), ylim=c(-4,15))
 
 lines(sim$niche_diff, sim$fitness_differences_sp_1, type = "l", lty = 1, col="red")
 lines(sim$niche_diff, sim$fitness_differences_sp_2, type = "l", lty = 1, col="blue")

@@ -526,7 +526,7 @@ window.Quarto = {
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_temp<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span>sim<span class="sc">$</span>fitness_differences_sp_1 <span class="co">#this is an intermediate step to see the differences above one </span></span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sim<span class="sc">$</span>fitness_differences_sp_2<span class="ot">&lt;-</span> sim<span class="sc">$</span>niche_overlap<span class="co"># blue line in your graph </span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlab=</span><span class="st">"niche differences"</span>, <span class="at">ylab=</span><span class="st">"fitness differences"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">8</span>))</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="cn">NULL</span>, <span class="at">xlab=</span><span class="st">"niche differences"</span>, <span class="at">ylab=</span><span class="st">"fitness differences"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">15</span>))</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_1, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"red"</span>)</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(sim<span class="sc">$</span>niche_diff, sim<span class="sc">$</span>fitness_differences_sp_2, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span>
@@ -634,10 +634,10 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>      sp1     sp2 niche.differences fitness.differences coexistence
 1 ant.odo cre.bie        0.01760664         0.096093218       FALSE
-2 ant.odo pru.gra        0.38836311         0.009053227       FALSE
-3 ant.odo tar.off        0.53191882         1.025598629        TRUE
-4 cre.bie pru.gra        0.75903231         0.051117253       FALSE
-5 cre.bie tar.off        0.90861749         1.645697190        TRUE
+2 ant.odo pru.gra        0.51577377         0.007167341       FALSE
+3 ant.odo tar.off        0.52673463         1.014364118        TRUE
+4 cre.bie pru.gra        0.76702662         0.049421395       FALSE
+5 cre.bie tar.off        0.92739479         2.071310731        TRUE
 6 dac.glo ant.odo        0.56908478         2.257621500        TRUE</code></pre>
 </div>
 </div>
