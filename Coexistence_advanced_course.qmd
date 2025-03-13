@@ -46,7 +46,7 @@ Then, you need to define the project folder as your working directory:
 
 ```{r}
 # change here for your own path
-path<-"~/PhD/GitHub Repos/Advanced_ecology_coexistence_2023" 
+path<-"~/Uni/GitHub Repos/Advanced_ecology_coexistence_2023" 
 
 # set your working directory
 setwd(path)
@@ -55,7 +55,7 @@ setwd(path)
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
 ```
 
-Finally, you can read the text file with the dataset and have a first look at it:
+Finally, you can read the text file with the data set and have a first look at it:
 
 ```{r}
 data<- read.table("data/coexistence_advanced_course.txt", header = T)
@@ -413,7 +413,7 @@ sim<-data.frame(niche_overlap=c(seq(0,3, 0.05))) # creating a vector with niche 
 sim$niche_diff<-(1-sim$niche_overlap) # calculating stabilizating differences from niche overlap 1-rho
 sim$fitness_differences_sp_1<-(1/sim$niche_overlap) # red line in your graph 
 sim$fitness_differences_sp_temp<- 1-sim$fitness_differences_sp_1 #this is an intermediate step to see the differences above one 
-sim$fitness_differences_sp_2<- 1+ sim$fitness_differences_sp_temp# blue line in your graph 
+sim$fitness_differences_sp_2<- sim$niche_overlap# blue line in your graph 
 
 plot(NULL, xlab="niche differences", ylab="fitness differences", xlim=c(-1, 1), ylim=c(-4,8))
 
@@ -503,7 +503,12 @@ coex$fitness.differences<-as.numeric(coex$fitness.differences)
 rownames(coex)<- NULL
 
 for (i in 1:nrow(coex)) {
-  coex$coexistence[i]<-(coex$fitness.differences[i])<=(-1/(coex$niche.differences[i]-1))&(1+((1-coex$fitness.differences[i])))<=(-1/(coex$niche.differences[i]-1))&(coex$niche.differences[i]>=0)
+  if(coex$fitness.differences[i]>1){
+  coex$coexistence[i]<-(coex$fitness.differences[i])<=(-1/(coex$niche.differences[i]-1))&(coex$niche.differences[i]>=0)
+  }
+  if(coex$fitness.differences[i]<=1){
+    coex$coexistence[i]<-(coex$fitness.differences[i])>=(1-coex$niche.differences[i])&(coex$niche.differences[i]>=0)
+  }
   
 }
 
@@ -530,7 +535,7 @@ sim<-data.frame(niche_overlap=c(seq(0,3, 0.05))) # creating a vector with niche 
 sim$niche_diff<-(1-sim$niche_overlap) # calculating stabilizating differences from niche overlap 1-rho
 sim$fitness_differences_sp_1<-(1/sim$niche_overlap) # red line in your graph 
 sim$fitness_differences_sp_temp<- 1-sim$fitness_differences_sp_1 #this is an intermediate step to see the differences above one 
-sim$fitness_differences_sp_2<- 1+ sim$fitness_differences_sp_temp# blue line in your graph 
+sim$fitness_differences_sp_2<- sim$niche_overlap# blue line in your graph 
 
 plot(coex$fitness.differences~coex$niche.differences, xlim=c(-1.5,1.1), ylim=c(0,18), col= ifelse(coex$coexistence==T, "red","black"))
 text(coex$niche.differences, coex$fitness.differences+0.15, labels=paste(substr(coex$sp1,1,3),substr(coex$sp2,1,3)),cex = 0.5,col= ifelse(coex$coexistence==T, "red","black"))
