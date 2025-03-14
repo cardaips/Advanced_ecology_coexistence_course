@@ -515,7 +515,7 @@ window.Quarto = {
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>niche_diff_dac.glo_cre.bie<span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>((dac.glo_cre.bie_competition<span class="sc">*</span>cre.bie_dac.glo_competition)<span class="sc">/</span>(dac.glo_intra_competition<span class="sc">*</span>cre.bie_intra_competition))</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co">#fitness differences between dac.glo and cre.bie</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fitness_diff_dac.glo_cre.bie<span class="ot">&lt;-</span> (dac.glo_lambda<span class="sc">/</span>cre.bie_lambda)<span class="sc">*</span><span class="fu">sqrt</span>((dac.glo_cre.bie_competition<span class="sc">*</span>dac.glo_intra_competition)<span class="sc">/</span>(cre.bie_dac.glo_competition<span class="sc">*</span>cre.bie_intra_competition)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>fitness_diff_dac.glo_cre.bie<span class="ot">&lt;-</span> (cre.bie_lambda<span class="sc">/</span>dac.glo_lambda)<span class="sc">*</span><span class="fu">sqrt</span>((dac.glo_cre.bie_competition<span class="sc">*</span>dac.glo_intra_competition)<span class="sc">/</span>(cre.bie_dac.glo_competition<span class="sc">*</span>cre.bie_intra_competition)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Time to see the results! Do you think <em>Dactylis glomerata</em> and <em>Crepis biennis</em> can coexist ?</p>
@@ -634,10 +634,10 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>      sp1     sp2 niche.differences fitness.differences coexistence
 1 ant.odo cre.bie        0.01760664         0.096093218       FALSE
-2 ant.odo pru.gra        0.48192153         0.007668409       FALSE
-3 ant.odo tar.off        0.52981714         1.021014283        TRUE
-4 cre.bie pru.gra        0.71951714         0.059499733       FALSE
-5 cre.bie tar.off        0.93370800         2.268568586        TRUE
+2 ant.odo pru.gra        0.38690067         0.009074874       FALSE
+3 ant.odo tar.off        0.38840961         0.784942695        TRUE
+4 cre.bie pru.gra        0.79250220         0.044017177       FALSE
+5 cre.bie tar.off        0.92017363         1.883938296        TRUE
 6 dac.glo ant.odo        0.56908478         2.257621500        TRUE</code></pre>
 </div>
 </div>

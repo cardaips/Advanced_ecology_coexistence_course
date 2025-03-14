@@ -400,7 +400,7 @@ We only compute one niche and one fitness differences per pair. The condition to
 niche_diff_dac.glo_cre.bie<- 1-sqrt((dac.glo_cre.bie_competition*cre.bie_dac.glo_competition)/(dac.glo_intra_competition*cre.bie_intra_competition))
 
 #fitness differences between dac.glo and cre.bie
-fitness_diff_dac.glo_cre.bie<- (dac.glo_lambda/cre.bie_lambda)*sqrt((dac.glo_cre.bie_competition*dac.glo_intra_competition)/(cre.bie_dac.glo_competition*cre.bie_intra_competition)) 
+fitness_diff_dac.glo_cre.bie<- (cre.bie_lambda/dac.glo_lambda)*sqrt((dac.glo_cre.bie_competition*dac.glo_intra_competition)/(cre.bie_dac.glo_competition*cre.bie_intra_competition)) 
 ```
 
 Time to see the results! Do you think *Dactylis glomerata* and *Crepis biennis* can coexist ?
